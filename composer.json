@@ -1,5 +1,5 @@
 {
-  "name": "cubadevops/flexi-module-healthcheck",
+  "name": "flexi/flexi-module-healthcheck",
   "description": "Health check module for Flexi Framework",
   "version": "2.0.0",
   "type": "flexi-module",
