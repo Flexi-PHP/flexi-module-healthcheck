@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace CubaDevOps\Flexi\Modules\HealthCheck\Infrastructure\Controllers;
 
 use Flexi\Contracts\Classes\HttpHandler;
-use Flexi\Infrastructure\Bus\QueryBus;
+use Flexi\Contracts\Interfaces\BusInterface;
 use CubaDevOps\Flexi\Modules\HealthCheck\Application\Queries\GetVersionQuery;
 use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\NotFoundExceptionInterface;
@@ -15,9 +15,9 @@ use Psr\Http\Message\ServerRequestInterface;
 
 class HealthController extends HttpHandler
 {
-    private QueryBus $query_bus;
+    private BusInterface $query_bus;
 
-    public function __construct(ResponseFactoryInterface $response_factory, QueryBus $query_bus)
+    public function __construct(ResponseFactoryInterface $response_factory, BusInterface $query_bus)
     {
         parent::__construct($response_factory);
         $this->query_bus = $query_bus;
