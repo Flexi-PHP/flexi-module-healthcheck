@@ -1,7 +1,7 @@
 {
-  "name": "cubadevops/flexi-module-healthcheck",
+  "name": "flexi/flexi-module-healthcheck",
   "description": "Health check module for Flexi Framework",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "type": "flexi-module",
   "license": "MIT",
   "keywords": [
@@ -19,11 +19,14 @@
   ],
   "require": {
     "php": ">=7.4",
-    "cubadevops/flexi-contracts": "@dev"
+    "flexi/contracts": "^5.2.1",
+    "psr/container": "^2.0",
+    "psr/http-message": "^2.0",
+    "psr/http-factory": "^1.0"
   },
   "autoload": {
     "psr-4": {
-      "CubaDevOps\\Flexi\\Modules\\HealthCheck\\": ""
+      "Flexi\\Modules\\HealthCheck\\": ""
     }
   },
   "extra": {
@@ -38,7 +41,19 @@
       "provides": [
         "health-check",
         "monitoring-endpoint"
-      ]
+      ],
+      "schema-version": 1,
+      "compatibility": {
+        "core": "^3.2"
+      }
     }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Flexi\\Modules\\HealthCheck\\Tests\\": "tests/"
+    }
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^9.6"
   }
 }

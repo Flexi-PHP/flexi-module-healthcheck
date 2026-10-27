@@ -2,12 +2,10 @@
 
 declare(strict_types=1);
 
-namespace CubaDevOps\Flexi\Modules\HealthCheck\Test\Infrastructure\Persistence;
+namespace Flexi\Modules\HealthCheck\Tests\Infrastructure\Persistence;
 
-use CubaDevOps\Flexi\Contracts\Interfaces\CriteriaInterface;
-use CubaDevOps\Flexi\Contracts\ValueObjects\ID;
-use CubaDevOps\Flexi\Modules\HealthCheck\Domain\Entities\VersionEntity;
-use CubaDevOps\Flexi\Modules\HealthCheck\Infrastructure\Persistence\VersionRepository;
+use Flexi\Contracts\ValueObjects\Version;
+use Flexi\Modules\HealthCheck\Infrastructure\Persistence\VersionRepository;
 use PHPUnit\Framework\TestCase;
 
 class VersionRepositoryTest extends TestCase
@@ -19,21 +17,11 @@ class VersionRepositoryTest extends TestCase
         $this->versionRepository = new VersionRepository();
     }
 
-    public function testRetrieveValue(): void
+    public function testGetVersion(): void
     {
-        $criteria = $this->createMock(CriteriaInterface::class);
+        $version = $this->versionRepository->getVersion();
 
-        $version = $this->versionRepository->retrieveValue($criteria);
-
-        $this->assertNotNull($version);
+        $this->assertInstanceOf(Version::class, $version);
         $this->assertIsString($version->getValue());
-    }
-
-    public function testGetID(): void
-    {
-        $versionEntity = $this->versionRepository->get(new ID('uuid'));
-
-        $this->assertNotNull($versionEntity);
-        $this->assertInstanceOf(VersionEntity::class, $versionEntity);
     }
 }

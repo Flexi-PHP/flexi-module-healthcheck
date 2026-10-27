@@ -2,21 +2,20 @@
 
 declare(strict_types=1);
 
-namespace CubaDevOps\Flexi\Modules\HealthCheck\Application\UseCase;
+namespace Flexi\Modules\HealthCheck\Application\UseCase;
 
-use CubaDevOps\Flexi\Contracts\Classes\PlainTextMessage;
-use CubaDevOps\Flexi\Contracts\Interfaces\DTOInterface;
-use CubaDevOps\Flexi\Contracts\Interfaces\HandlerInterface;
-use CubaDevOps\Flexi\Contracts\Interfaces\MessageInterface;
-use CubaDevOps\Flexi\Contracts\Interfaces\RepositoryInterface;
-use CubaDevOps\Flexi\Contracts\ValueObjects\Version;
-use CubaDevOps\Flexi\Contracts\Classes\Criteria\AnyCriteria;
+use Flexi\Contracts\Classes\PlainTextMessage;
+use Flexi\Contracts\Interfaces\DTOInterface;
+use Flexi\Contracts\Interfaces\HandlerInterface;
+use Flexi\Contracts\Interfaces\MessageInterface;
+use Flexi\Modules\HealthCheck\Domain\Interfaces\VersionRepositoryInterface;
+use Flexi\Contracts\ValueObjects\Version;
 
 class Health implements HandlerInterface
 {
-    private RepositoryInterface $version_repository;
+    private VersionRepositoryInterface $version_repository;
 
-    public function __construct(RepositoryInterface $version_repository)
+    public function __construct(VersionRepositoryInterface $version_repository)
     {
         $this->version_repository = $version_repository;
     }
@@ -29,9 +28,7 @@ class Health implements HandlerInterface
     public function handle(DTOInterface $dto): MessageInterface
     {
         /** @var Version $version */
-        $version = $this->version_repository->retrieveValue(
-            new AnyCriteria()
-        );
+        $version = $this->version_repository->getVersion();
 
         return new PlainTextMessage((string) $version);
     }
