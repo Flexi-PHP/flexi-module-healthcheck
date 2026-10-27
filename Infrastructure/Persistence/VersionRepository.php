@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace CubaDevOps\Flexi\Modules\HealthCheck\Infrastructure\Persistence;
+namespace Flexi\Modules\HealthCheck\Infrastructure\Persistence;
 
 use Flexi\Contracts\ValueObjects\Version;
 use Flexi\Contracts\Classes\Traits\JsonFileReader;
-use CubaDevOps\Flexi\Modules\HealthCheck\Domain\Interfaces\VersionRepositoryInterface;
+use Flexi\Modules\HealthCheck\Domain\Interfaces\VersionRepositoryInterface;
 
 class VersionRepository implements VersionRepositoryInterface
 {

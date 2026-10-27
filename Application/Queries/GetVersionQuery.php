@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace CubaDevOps\Flexi\Modules\HealthCheck\Application\Queries;
+namespace Flexi\Modules\HealthCheck\Application\Queries;
 
 use Flexi\Contracts\Interfaces\DTOInterface;
 

@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace CubaDevOps\Flexi\Modules\HealthCheck\Tests\Infrastructure\Persistence;
+namespace Flexi\Modules\HealthCheck\Tests\Infrastructure\Persistence;
 
 use Flexi\Contracts\ValueObjects\Version;
-use CubaDevOps\Flexi\Modules\HealthCheck\Infrastructure\Persistence\VersionRepository;
+use Flexi\Modules\HealthCheck\Infrastructure\Persistence\VersionRepository;
 use PHPUnit\Framework\TestCase;
 
 class VersionRepositoryTest extends TestCase

@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace CubaDevOps\Flexi\Modules\HealthCheck\Tests\Application\UseCase;
+namespace Flexi\Modules\HealthCheck\Tests\Application\UseCase;
 
 use Flexi\Contracts\Classes\PlainTextMessage;
 use Flexi\Contracts\Interfaces\DTOInterface;
 use Flexi\Contracts\ValueObjects\Version;
-use CubaDevOps\Flexi\Modules\HealthCheck\Application\UseCase\Health;
-use CubaDevOps\Flexi\Modules\HealthCheck\Domain\Interfaces\VersionRepositoryInterface;
+use Flexi\Modules\HealthCheck\Application\UseCase\Health;
+use Flexi\Modules\HealthCheck\Domain\Interfaces\VersionRepositoryInterface;
 use PHPUnit\Framework\TestCase;
 
 class HealthTest extends TestCase

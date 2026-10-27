@@ -1,15 +1,15 @@
 {
   "services": [
     {
-      "name": "CubaDevOps\\Flexi\\Modules\\HealthCheck\\Domain\\Interfaces\\VersionRepositoryInterface",
+      "name": "Flexi\\Modules\\HealthCheck\\Domain\\Interfaces\\VersionRepositoryInterface",
       "class": {
-        "name": "CubaDevOps\\Flexi\\Modules\\HealthCheck\\Infrastructure\\Persistence\\VersionRepository",
+        "name": "Flexi\\Modules\\HealthCheck\\Infrastructure\\Persistence\\VersionRepository",
         "arguments": []
       }
     },
     {
       "name": "version_repository",
-      "alias": "CubaDevOps\\Flexi\\Modules\\HealthCheck\\Domain\\Interfaces\\VersionRepositoryInterface"
+      "alias": "Flexi\\Modules\\HealthCheck\\Domain\\Interfaces\\VersionRepositoryInterface"
     }
   ]
 }

@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace CubaDevOps\Flexi\Modules\HealthCheck\Infrastructure\Controllers;
+namespace Flexi\Modules\HealthCheck\Infrastructure\Controllers;
 
 use Flexi\Contracts\Classes\HttpHandler;
 use Flexi\Contracts\Interfaces\BusInterface;
-use CubaDevOps\Flexi\Modules\HealthCheck\Application\Queries\GetVersionQuery;
+use Flexi\Modules\HealthCheck\Application\Queries\GetVersionQuery;
 use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\NotFoundExceptionInterface;
 use Psr\Http\Message\ResponseFactoryInterface;
