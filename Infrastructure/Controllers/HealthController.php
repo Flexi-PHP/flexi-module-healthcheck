@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace CubaDevOps\Flexi\Modules\HealthCheck\Infrastructure\Controllers;
 
-use CubaDevOps\Flexi\Contracts\Classes\HttpHandler;
-use CubaDevOps\Flexi\Infrastructure\Bus\QueryBus;
+use Flexi\Contracts\Classes\HttpHandler;
+use Flexi\Infrastructure\Bus\QueryBus;
 use CubaDevOps\Flexi\Modules\HealthCheck\Application\Queries\GetVersionQuery;
 use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\NotFoundExceptionInterface;

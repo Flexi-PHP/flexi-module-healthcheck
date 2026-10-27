@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace CubaDevOps\Flexi\Modules\HealthCheck\Test\Application\UseCase;
+namespace CubaDevOps\Flexi\Modules\HealthCheck\Tests\Application\UseCase;
 
-use CubaDevOps\Flexi\Contracts\Classes\PlainTextMessage;
-use CubaDevOps\Flexi\Contracts\Interfaces\DTOInterface;
-use CubaDevOps\Flexi\Contracts\ValueObjects\Version;
+use Flexi\Contracts\Classes\PlainTextMessage;
+use Flexi\Contracts\Interfaces\DTOInterface;
+use Flexi\Contracts\ValueObjects\Version;
 use CubaDevOps\Flexi\Modules\HealthCheck\Application\UseCase\Health;
-use CubaDevOps\Flexi\Modules\HealthCheck\Infrastructure\Persistence\VersionRepository;
+use CubaDevOps\Flexi\Modules\HealthCheck\Domain\Interfaces\VersionRepositoryInterface;
 use PHPUnit\Framework\TestCase;
 
 class HealthTest extends TestCase
@@ -18,7 +18,7 @@ class HealthTest extends TestCase
 
     public function setUp(): void
     {
-        $this->versionRepository = $this->createMock(VersionRepository::class);
+        $this->versionRepository = $this->createMock(VersionRepositoryInterface::class);
 
         $this->health = new Health($this->versionRepository);
     }
@@ -28,7 +28,7 @@ class HealthTest extends TestCase
         $dto = $this->createMock(DTOInterface::class);
 
         $this->versionRepository->expects($this->once())
-            ->method('retrieveValue')
+            ->method('getVersion')
             ->willReturn(new Version(1, 1, 1));
 
         $message = $this->health->handle($dto);
